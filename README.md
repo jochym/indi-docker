@@ -1,7 +1,8 @@
 Docker images for libindi build environment
 ===================
 
-![Docker Build Status](https://img.shields.io/docker/build/jochym/indi-docker.svg?link=https%3A%2F%2Fhub.docker.com%2Fr%2Fjochym%2Findi-docker%2Fbuilds%2F)
+![Docker Build Status](https://img.shields.io/docker/build/jochym/indi-docker.svg)
+[Images](https://hub.docker.com/r/jochym/indi-docker/builds/)
 
 This directory contains Dockerfiles for building environments on various linux distributions
 
