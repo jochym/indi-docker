@@ -1,4 +1,4 @@
-Docker images for build environment
+Docker images for libindi build environment
 ===================
 ![Docker Build Status](https://img.shields.io/docker/build/jochym/indi-artful.svg?label=Ubuntu+Artful)
 ![Docker Build Status](https://img.shields.io/docker/build/jochym/indi-bionic.svg?label=Ubuntu+Bionic)
