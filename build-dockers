@@ -1,11 +1,9 @@
 #!/bin/bash
 
-for d in */Dockerfile ; do
-    dn=${d%/Dockerfile}
-    n=${dn#*_}
-    echo Building $n ...
-    docker rmi $n
-    docker build -t $n $dn > ${n}.log
-    echo Finished
-    echo ==================================
-done
+n=`git rev-parse --abbrev-ref HEAD`
+
+echo Building $n ...
+docker rmi $n
+docker build -t $n . > ${n}.log
+echo Finished
+echo ==================================
