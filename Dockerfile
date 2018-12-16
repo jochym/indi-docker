@@ -1,7 +1,7 @@
 FROM ubuntu:trusty
 
 RUN apt-get -qq update && apt-get -qqy dist-upgrade
-
+RUN apt-get -qqy install software-properties-common
 RUN add-apt-repository -y ppa:mc3man/trusty-media && apt-get update
 
 RUN apt-get -qqy install \
@@ -10,9 +10,8 @@ RUN apt-get -qqy install \
         libftdi-dev libdc1394-22-dev libgphoto2-dev libgps-dev libgsl0-dev libjpeg-dev libtiff5-dev \
         libnova-dev libopenal-dev libraw-dev libusb-1.0-0-dev librtlsdr-dev \
         libfftw3-dev zlib1g-dev libconfuse-dev python3-all-dev doxygen \
-        libboost-test-dev python-all-dev swig software-properties-common\
-        libdc1394-22-dev libavdevice-dev libavcodec-dev \
-        lsb-release dirmngr vim
+        libboost-test-dev python-all-dev swig lsb-release dirmngr vim \
+        libdc1394-22-dev libavdevice-dev libavcodec-dev 
 
 
 # Install gcc-4.9
