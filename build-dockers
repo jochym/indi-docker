@@ -1,12 +1,23 @@
 #!/bin/bash
 
-for b in `git branch |grep -v '^*' |grep -v master` ; do
-    git worktree add bldtree $b 
+git clone `git remote -v |grep origin |grep fetch |awk '{print $2}'` bldtree
+
+if [ ${1}. == '.' ] ; then
+    br=`git branch -v |grep -v '^*' |grep -v master`
+else
+    br=$1
+fi
+
+(cd bldtree
+for b in $br ; do
     echo Building $b ...
+    git checkout $b
     docker rmi $b
-    docker build -t $b bldtree > ${b}.log
+    docker build -t $b . |tee ../${b}.log
     echo Finished
-    git worktree remove bldtree
     echo ==================================
 done
+)
+
+rm -rf bldtree
 
