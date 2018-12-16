@@ -1,11 +1,12 @@
 #!/bin/bash
 
-for d in */Dockerfile ; do
-    dn=${d%/Dockerfile}
-    n=${dn#*_}
-    echo Building $n ...
-    docker rmi $n
-    docker build -t $n $dn > ${n}.log
+for b in `git branch |grep -v '^*' |grep -v master` ; do
+    git worktree add bldtree $b 
+    echo Building $b ...
+    docker rmi $b
+    docker build -t $b bldtree > ${b}.log
     echo Finished
+    git worktree remove bldtree
     echo ==================================
 done
+
