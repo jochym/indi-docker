@@ -2,6 +2,8 @@ FROM ubuntu:trusty
 
 RUN apt-get -qq update && apt-get -qqy dist-upgrade
 
+RUN add-apt-repository -y ppa:mc3man/trusty-media && apt-get update
+
 RUN apt-get -qqy install \
         cdbs dpkg-dev debhelper cmake3 curl dcraw fakeroot wget git ssh \
         libcurl4-gnutls-dev libboost-dev libboost-regex-dev libcfitsio3-dev libftdi1 \
@@ -11,6 +13,7 @@ RUN apt-get -qqy install \
         libboost-test-dev python-all-dev swig software-properties-common\
         libdc1394-22-dev libavdevice-dev libavcodec-dev \
         lsb-release dirmngr vim
+
 
 # Install gcc-4.9
 RUN apt-get -qqy remove gcc g++
