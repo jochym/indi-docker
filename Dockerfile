@@ -17,9 +17,6 @@ RUN apt-get -qqy install \
 # Install gcc-4.9
 RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test
 RUN apt-get -yqq update && apt-get -yqq install g++-4.9
-RUN update-alternatives --remove-all gcc 
-RUN update-alternatives --remove-all g++
-
 RUN update-alternatives --install /usr/bin/gcc gcc `which gcc-4.8` 10
 RUN update-alternatives --install /usr/bin/gcc gcc `which gcc-4.9` 20
 RUN update-alternatives --install /usr/bin/g++ g++ `which g++-4.8` 10
